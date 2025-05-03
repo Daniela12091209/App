@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <main id="app"></main>
+    <button onclick="filtro"('https://api.escuelajs.co/api/v1/users')">fire</button>
+    <button onclick="filtro"('https://api.escuelajs.co/api/v1/products')">agua</button>
+
+    <script>
+        let Platzi = [];
+        let totalProductos = 1026; /* debe agregarse uno mas ya q el indice comienza en 0 */
+
+        async function  conexionLista() {
+            const res = await fetch('https://api.escuelajs.co/api/v1/products')
+            const data = await res.json()
+            Platzi = data;
+            
+            for(var i = 0; i < totalProductos; i++) 
+            
+            //console.log(Platzi[i].title)
+            
+            document.getElementById("app").innerHTML += "<p>" +  [i] + Platzi[i].title + ":" + Platzi[i].price + "</p>"
+        
+        }
+        
+        
+        conexionLista()
+
+    </script>
+</body>
+</html>
